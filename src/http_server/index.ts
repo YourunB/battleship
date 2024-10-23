@@ -22,7 +22,7 @@ export const createServerHTTP = () => {
 
   server.listen(
       port,
-      () => { console.log(`${('[HTTP SERVER]')} Started on port ${(port)}.`) }
+      () => { console.log(`${'HTTP SERVER:'} started on port ${port}.`) }
   )
 
   return server
