@@ -3,12 +3,15 @@ import { createServerHTTP } from './src/http_server'
 import { createServerWSS } from './src/ws_server'
 import { onProcessClose } from './src/ws_server/helpers/onProcessClose';
 
+const serverHTTP = createServerHTTP()
+const serverWS = createServerWSS()
+
 onProcessClose(() => {
-  createServerWSS().clients.forEach(client => {
+  serverWS.clients.forEach(client => {
     if (client?.readyState === WebSocket.OPEN) {
       client.close()
     }
   })
-  createServerWSS().close()
-  createServerHTTP().close()
+  serverWS.close()
+  serverHTTP.close()
 })
