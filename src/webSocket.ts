@@ -1,12 +1,17 @@
 import WebSocket from 'ws';
 
-export default class PlayerWebSocket extends WebSocket {
-  private roomPlayer = {};
+export type TPlayer = {
+  name: string;
+  index: number;
+};
 
-  set player(data) {
+export default class PlayerWebSocket extends WebSocket {
+  private roomPlayer: TPlayer = <TPlayer> {};
+
+  set player(data: TPlayer) {
     this.roomPlayer = data;
   }
-  get player() {
+  get player(): TPlayer {
     return this.roomPlayer;
   }
 }
