@@ -3,7 +3,6 @@ import * as path from 'path'
 import * as http from 'http'
 
 export const createServerHTTP = () => {
-
   const port = parseInt(process.env.HTTP_PORT!, 10) || 8181
 
   const server = http.createServer((req, res) => {
@@ -20,10 +19,6 @@ export const createServerHTTP = () => {
       })
   })
 
-  server.listen(
-      port,
-      () => { console.log(`${'HTTP SERVER:'} started on port ${port}.`) }
-  )
-
+  server.listen( port, () => { console.log(`${'HTTP SERVER:'} started on port ${port}.`) })
   return server
 }
