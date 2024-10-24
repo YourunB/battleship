@@ -6,20 +6,20 @@ enum ResponseDataMessage {
   PlayerExists = 'Player already exists',
 }
 
-enum MsgType {
+export enum MsgType {
   Reg = 'reg',
-  CreateGame = 'create_game',
-  CreateRoom = 'create_room',
-  UpdateRoom = 'update_room',
   AddUserToRoom = 'add_user_to_room',
   AddShips = 'add_ships',
   Attack = 'attack',
   RandomAttack = 'randomAttack',
+  Turn = 'turn',
   SinglePlay = 'single_play',
   StartGame = 'start_game',
-  Turn = 'turn',
   Finish = 'finish',
   UpdateWinners = 'update_winners',
+  UpdateRoom = 'update_room',
+  CreateRoom = 'create_room',
+  CreateGame = 'create_game',
 }
 
 enum PlayerType {
