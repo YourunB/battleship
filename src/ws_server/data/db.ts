@@ -47,7 +47,7 @@ export class Connections {
   }
 
   getConnection(id: string): Connection | undefined {
-    return this.connections.find((connection) => connection.id === id);
+    return this.connections.find((el) => el.id === id);
   }
 
   getConnectionByPlayerName(name: string): Connection | undefined {
