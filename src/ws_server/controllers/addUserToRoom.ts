@@ -17,7 +17,7 @@ export const addUserToRoom = (data: any, connectionId: any) => {
   connectionsDB.sendData(roomsDB.getUpdateRoomData());
 
   gamesDB.getGameData(game.gameId)
-    .forEach(({ type, data, connectionId }: any) => {
+    .map(({ type, data, connectionId }: any) => {
       connectionsDB.sendData({ type, data }, connectionId)
     })
 }
