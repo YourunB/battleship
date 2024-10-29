@@ -1,6 +1,9 @@
 import * as fs from 'fs'
 import * as path from 'path'
 import * as http from 'http'
+import dotenv from 'dotenv'
+
+dotenv.config()
 
 export const createServerHTTP = () => {
   const port = parseInt(process.env.HTTP_PORT!, 10) || 8181
@@ -19,6 +22,6 @@ export const createServerHTTP = () => {
       })
   })
 
-  server.listen( port, () => { console.log(`${'HTTP SERVER:'} started on port ${port}.`) })
+  server.listen( port, () => { console.log(`${'HTTP SERVER:'} started on port: ${port}`) })
   return server
 }

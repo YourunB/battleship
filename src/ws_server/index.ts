@@ -6,7 +6,7 @@ export const createServerWSS = () => {
 
   const wss = new WebSocketServer(
     { port: port, clientTracking: true },
-    () => { console.log(`${'WS SERVER: '} started on port ${port}.`) },
+    () => { console.log(`${'WS SERVER: '} started on port: ${port}`) },
   )
 
   wss.on('connection', (ws, request) => {
@@ -24,7 +24,7 @@ export const createServerWSS = () => {
   })
 
   wss.on('error', (error) => {
-    console.log(`${'WS SERVER:'} ${'ERROR'} - server error on port ${port}. Error: ${error.message}.`);
+    console.log(`${'WS SERVER:'} ${'ERROR'} - server error on port: ${port}. Error: ${error.message}.`);
   })
 
   wss.on('close', () => {
@@ -33,7 +33,7 @@ export const createServerWSS = () => {
         client.close()
       }
     })
-    console.log(`${'WS SERVER:'} close on port ${port}.`)
+    console.log(`${'WS SERVER:'} close on port: ${port}`)
   })
 
   return wss
