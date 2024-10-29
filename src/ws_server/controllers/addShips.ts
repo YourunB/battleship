@@ -11,10 +11,9 @@ export const addShips = (data: any) => {
   gamesDB.addPlayerShips(gameId, indexPlayer, ships)
   if (!gamesDB.canStartGame(gameId)) return;
 
-  gamesDB.getStartGameData(gameId).forEach(({ type, data, connectionId }: any) => {
-    connectionsDB.sendData({ type, data }, connectionId)
-  })
-  gamesDB.getTurnData(gameId).forEach(({ type, data, connectionId }: any) => {
-    connectionsDB.sendData({ type, data }, connectionId)
-  })
+  const start = gamesDB.getStartGameData(gameId);
+  start.forEach(({ type, data, connectionId }: any) => connectionsDB.sendData({ type, data }, connectionId));
+
+  const turn = gamesDB.getTurnData(gameId);
+  turn.forEach(({ type, data, connectionId }: any) => connectionsDB.sendData({ type, data }, connectionId));
 }
